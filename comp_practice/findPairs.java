@@ -4,7 +4,7 @@ public class findPairs
 {
 public static void main(String[] args)
 {
-long startTime = System.nanoTime();
+long startTime = System.nanoTime();  
 int[] arr1 = {1,2,3,7,5,4,2,4};
 int[] arr2 = {0,7,4,3,2,1};
 int key = 8;
@@ -20,6 +20,6 @@ for(int i=0;i<arr2.length;i++)
 		System.out.print(a+" ");
 long endTime = System.nanoTime();
 	System.out.println();
-	System.out.println(endTime - startTime + " nanoseconds");
+	System.out.println(endTime - startTime + " nanoseconds");  // printing run time of program in nanoseconds
 }
 }
