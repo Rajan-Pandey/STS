@@ -1,3 +1,12 @@
+/* Idea 1 (Using Temp String) : Create a temp String for s1 as temp = s1 + s1;
+Now if s2 is rotation of s1 , then temp must contains s2 */
+
+/* Idea 2 (Using Queue) : store both strings in queues.
+	Now delete from front of queue2 and insert deleted element at end of queue2 ( will be in loop for length times of string 2)
+	check if queue1 equals queue2
+	if both are equal in any iteration then string2 is rotation of string1, otherwise not rotation */
+
+
 import java.util.*;
 
 public class rotation
