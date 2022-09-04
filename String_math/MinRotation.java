@@ -1,3 +1,9 @@
+/* Idea is to store strings in Two Linked Lists
+1.First linkedlist will not be changed 
+2.We will generate rotations of string by reading and removing element from front and adding it from back 
+3.will increment count of rotation by 1 for each such operation and check if both queues are equal after each rotation
+4.if both queues are equal then current count of rotation is our answer
+*/
 import java.util.*;
 
 public class MinRotation
