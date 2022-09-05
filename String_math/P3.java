@@ -24,11 +24,7 @@ if(!list.contains(temp))
 PriorityQueue<String> pq = new PriorityQueue<String>();
 
 for(String s : list)
-	{
-		if(pq.contains(s))
-			continue;
 		pq.add(s+" ");
-	}	
 
 while(!pq.isEmpty())
 	System.out.print(pq.poll());
