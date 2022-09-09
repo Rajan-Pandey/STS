@@ -1,3 +1,6 @@
+
+/* Program to find maximum sum contigous sub array */
+
 import java.util.*;
 
 public class Kadane
