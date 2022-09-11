@@ -91,6 +91,49 @@ public class BST2
 		return false;
 			
 	}
+	
+	void delete(int key)
+	{
+		root = deleteKey(root, key);
+	}
+	
+	Node deleteKey(Node root , int key)
+	{
+		if( root == null)
+			return root;
+		
+		if(key < root.key)
+			root.left = deleteKey(root.left,key);
+		else if(key > root.key)
+			root.right = deleteKey(root.right,key);
+		else
+		{
+		
+		 if(root.left == null)
+		 	return root.right;
+		 else if(root.right == null)
+		 	return root.left;
+		 
+		 root.key = minValue(root.right);
+		 
+		 root.right = deleteKey(root.right , root.key);
+		 
+		 }
+		 
+		 return root;
+		}
+		
+	int minValue(Node root)
+	{
+		int minVal = root.key;
+		while(root.left != null)
+		{
+			minVal = root.left.key;
+			root = root.left;
+		}
+		return minVal;
+	}
+
 	public static void main(String[] args)
 	{
 		BST2 bst = new BST2();
@@ -109,7 +152,11 @@ public class BST2
 		
 		System.out.print("Enter search keys : ");
 		for(int i =0; i<n; i++)
-			bst.search(sc.nextInt());
-		
+		{
+			int k = sc.nextInt();
+			bst.search(k);
+			bst.delete(k);
+			bst.inorder();
+		}		
 	}
 }
