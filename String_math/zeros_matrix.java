@@ -4,15 +4,69 @@ public class zeros_matrix
 {
 public static void main(String[] args)
 {
-int[][] matrix = { {0,2,0,3,0},
-		   {0,0,0,0,0},
-		   {0,5,0,6,0},
-		   {0,8,0,9,0},
-		   {0,0,0,0,0}};
 
-int n = matrix.length;
+Scanner sc = new Scanner(System.in);
+int m = sc.nextInt();
+int n = sc.nextInt();
 
-ArrayList<Integer> row = new ArrayList<>();
+int[][] matrix = new int[m][n];
+
+for(int i=0;i<m;i++)
+{	
+	for(int j=0;j<n;j++)
+	{
+		matrix[i][j] = sc.nextInt();
+	}
+}
+
+int[] row = new int[m];
+int[] col = new int[n];
+
+int sum = 0;
+int k = 0;
+
+for(int i=0;i<m;i++)
+{	
+	for(int j=0;j<n;j++)
+	{
+		row[i] += matrix[i][j];
+	}
+}
+
+for(int i=0;i<n;i++)
+{	
+	for(int j=0;j<m;j++)
+	{
+		sum += matrix[j][i];
+	}
+	col[k++] = sum;
+	sum = 0;
+}
+
+/*for(int a : row)
+	System.out.print(a + "  ");
+System.out.println();
+
+for(int a : col)
+	System.out.print(a + "  ");
+*/
+
+for(int i =0; i<m; i++)
+{
+	if(row[i] == 0)
+		continue;
+	for(int j =0; j<n; j++)	
+	{
+		if(col[j] == 0)
+			continue;
+	 System.out.print(matrix[i][j] + " ");
+	}
+	System.out.println();
+}
+
+
+
+/*ArrayList<Integer> row = new ArrayList<>();
 ArrayList<Integer> column = new ArrayList<>();
 for(int i=0;i<n;i++)
 {	
@@ -46,6 +100,7 @@ for(int i=0;i<n;i++)
 	System.out.println();
 
 }
-System.out.print(row + " " + column);
+*/
+//System.out.print(row + " " + column);
 }
 }
