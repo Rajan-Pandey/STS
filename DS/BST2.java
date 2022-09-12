@@ -99,24 +99,27 @@ public class BST2
 	
 	Node deleteKey(Node root , int key)
 	{
-		if( root == null)
+		if( root == null)		
 			return root;
-		
+		//Traverse left or right subtree for deletion
 		if(key < root.key)
 			root.left = deleteKey(root.left,key);
 		else if(key > root.key)
 			root.right = deleteKey(root.right,key);
+
+		//If current node contains key
 		else
 		{
 		
-		 if(root.left == null)
+		 if(root.left == null)			//if left sub tree is null , replace root by right child
 		 	return root.right;
-		 else if(root.right == null)
+		 else if(root.right == null)			// if right sub tree is null , replace root by left child
 		 	return root.left;
 		 
+			// when node has both left and right child , replace by inorder successor , which is min node in right sub tree
 		 root.key = minValue(root.right);
 		 
-		 root.right = deleteKey(root.right , root.key);
+		 root.right = deleteKey(root.right , root.key);	 // delete inorder successor from right subtrr
 		 
 		 }
 		 
