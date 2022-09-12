@@ -75,7 +75,10 @@ public class BST2
 		if(root == null)
 			return false;
 		if(root.key == key)
-			return true;
+		{
+		System.out.println("Height of " + key +" is " + height(root));
+			return true;	
+		}	
 			
 		if(key < root.key)
 		{
@@ -136,6 +139,27 @@ public class BST2
 		}
 		return minVal;
 	}
+	int height(Node root)
+	{
+		if(root == null)
+			return 0;
+		return 1 + Math.max(height(root.left), height(root.right));
+	}
+	boolean isbalanced()
+	{
+		return isbalanced(root);
+	}
+	boolean isbalanced(Node root)
+	{
+		if(root == null)
+			return true;
+		int lh = height(root.left);
+		int rh = height(root.right);
+		
+		if(Math.abs(lh-rh) <= 1 && isbalanced(root.left) && isbalanced(root.right))
+			return true;
+		return false;	
+	}
 
 	public static void main(String[] args)
 	{
@@ -148,6 +172,10 @@ public class BST2
 				bst.insert(Integer.parseInt(arr[i]));
 		
 		bst.inorder();
+
+		if(bst.isbalanced())
+			System.out.println("Tree is balanced");
+		else System.out.println("Tree is not balanced");
 		
 		System.out.print("Enter no of searches : ");
 		int n = sc.nextInt();
@@ -158,7 +186,7 @@ public class BST2
 		{
 			int k = sc.nextInt();
 			bst.search(k);
-			bst.delete(k);
+			//bst.delete(k);
 			bst.inorder();
 		}		
 	}
