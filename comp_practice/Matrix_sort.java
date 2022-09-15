@@ -15,9 +15,9 @@ for(int i = 0; i<m ; i++)
 		arr[i][j] = sc.nextInt();
 
 for(int i =0; i<m;i++)
-	Arrays.sort(arr[i]);
+	Arrays.sort(arr[i]);   //Sort rows of matrix
 
-for(int i =0; i<m; i++)
+for(int i =0; i<m; i++)     //Gettting transpose of matrix
 	for(int j = i+1; j<n; j++)
 	{
 		int temp = arr[i][j];
@@ -25,10 +25,10 @@ for(int i =0; i<m; i++)
 		arr[j][i] = temp;
 	}
 
-for(int i =0; i<m;i++)
+for(int i =0; i<m;i++)  // Sort rows of matrix
 	Arrays.sort(arr[i]);
 
-for(int i =0; i<m; i++)
+for(int i =0; i<m; i++)    // Getting transpose of matrix
 	for(int j = i+1; j<n; j++)
 	{
 		int temp = arr[i][j];
