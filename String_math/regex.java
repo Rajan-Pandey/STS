@@ -6,7 +6,7 @@ public class regex
 public static void main(String[] args)
 {
 Scanner sc = new Scanner(System.in);
-System.out.print("Enter Regex : ");
+System.out.print("Enter Regex : "); //Handling needed for Dangling Characters , need to append \\ before any special character used in regex
 String regex = sc.next();
 
 System.out.print("Enter String to be matched : ");
