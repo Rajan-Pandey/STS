@@ -9,7 +9,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class Product {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer productId;
 	private String productName;
 	private Double price;

@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class CartProduct {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer cpId;
 	@ManyToOne
 	private Cart cart;
