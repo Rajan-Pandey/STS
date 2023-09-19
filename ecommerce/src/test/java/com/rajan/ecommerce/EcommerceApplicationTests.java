@@ -45,6 +45,7 @@ class EcommerceApplicationTests {
 	@Autowired
 	CartProductRepo cpRepo;
 	
+	
 	@Test
 	@Order(1)
 	public void test1() throws Exception {
@@ -162,6 +163,7 @@ class EcommerceApplicationTests {
 		Cart c = cartRepo.findById(1).get();
 		User u = userRepo.findById(1).get();
 		assertEquals(u.getUsername(),c.getUser().getUsername());
+		System.out.println(u.getRoles());
 		assert (u.getRoles().toString().contains("CONSUMER"));
 		assert (!u.getRoles().toString().contains("SELLER"));
 	}
@@ -224,6 +226,6 @@ class EcommerceApplicationTests {
 		assertEquals(1,c.getCartProducts().size());
 		assertEquals("2",c.getCartProducts().get(0).getQuantity().toString());
 		assertEquals("1",c.getCartProducts().get(0).getProduct().getProductId().toString());
-		assertEquals("apple iphoe", c.getCartProducts().get(0).getProduct().getProductName().toString().toLowerCase());
+		assertEquals("apple iphone", c.getCartProducts().get(0).getProduct().getProductName().toString().toLowerCase());
 	}
 }

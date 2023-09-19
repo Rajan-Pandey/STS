@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Role {
@@ -14,6 +15,8 @@ public class Role {
 	private int roleId;
 	private String role;
 	
+	@OneToOne
+	private User user;
 	public Role()
 	{
 		super();
@@ -34,6 +37,11 @@ public class Role {
 	}
 	public void setRoleId(int roleId) {
 		this.roleId = roleId;
+	}
+
+	@Override
+	public String toString() {
+		return "Role [roleId=" + roleId + ", role=" + role + ", user=" + user + "]";
 	}
 	
 	

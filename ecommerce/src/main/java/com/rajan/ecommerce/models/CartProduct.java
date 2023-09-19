@@ -1,10 +1,17 @@
 package com.rajan.ecommerce.models;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class CartProduct {
@@ -13,9 +20,11 @@ public class CartProduct {
 	private Integer cpId;
 	@ManyToOne
 	private Cart cart;
-	@ManyToOne
+	@OneToOne
+	@JoinColumn(name="product_id",referencedColumnName="productId")
 	private Product product;
 	private Integer quantity = 1;
+	
 	
 	public CartProduct()
 	{
@@ -30,10 +39,11 @@ public class CartProduct {
 		this.cpId = cpId;
 	}
 
+	@JsonIgnore
 	public Cart getCart() {
 		return cart;
+		
 	}
-
 	public void setCart(Cart cart) {
 		this.cart = cart;
 	}

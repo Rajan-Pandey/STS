@@ -1,12 +1,17 @@
 package com.rajan.ecommerce.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -18,15 +23,15 @@ public class Cart {
 	private Double totalAmount;
 	@OneToOne
 	private User user;
-	@OneToMany(fetch = FetchType.EAGER)
-	private List<CartProduct> cartProducts;
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.DETACH , mappedBy = "cart")
+	private List<CartProduct> cartProducts = new ArrayList<>();
 	
 	public Cart()
 	{
 		super();
 	}
 
-	public Cart(Integer cartId, Double totalAmount, User user, List<CartProduct> cartProducts) {
+	public Cart(Integer cartId, Double totalAmount, User user,List<CartProduct> cartProducts) {
 		super();
 		this.cartId = cartId;
 		this.totalAmount = totalAmount;
@@ -36,8 +41,7 @@ public class Cart {
 
 	@Override
 	public String toString() {
-		return "Cart [cartId=" + cartId + ", totalAmount=" + totalAmount + ", user=" + user + ", cartProducts="
-				+ cartProducts + "]";
+		return "Cart [cartId=" + cartId + ", totalAmount=" + totalAmount + ", user=" + user + ", cartProducts=" + cartProducts + "]";
 	}
 
 	public Integer getCartId() {
@@ -71,6 +75,7 @@ public class Cart {
 	public void setCartProducts(List<CartProduct> cartProducts) {
 		this.cartProducts = cartProducts;
 	}
+	
 	
 	
 	
