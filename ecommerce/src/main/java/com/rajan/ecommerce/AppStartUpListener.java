@@ -149,8 +149,8 @@ public class AppStartUpListener implements ApplicationListener<ContextRefreshedE
 		Cart cart = cartRepo.findById(1).get();
 		CartProduct cartProduct = new CartProduct();
 		cartProduct.setCpId(1);
-		cartProduct.setCart(cartRepo.findById(1).get());
 		cartProduct.setProduct(productRepo.findById(2).get());
+		cartProduct.setCart(cartRepo.findById(1).get());
 		cartProduct.setQuantity(2);
 		
 		cpRepo.save(cartProduct);
@@ -158,6 +158,7 @@ public class AppStartUpListener implements ApplicationListener<ContextRefreshedE
 		CartProduct cp = cpRepo.findById(1).get();
 		cart.getCartProducts().add(cp);
 		cartRepo.save(cart);
+		
 	}
 
 }
