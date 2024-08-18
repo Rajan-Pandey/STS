@@ -22,9 +22,9 @@ public class pangram
 			char ch = s.charAt(i);
 			if(Character.isLetter(ch))
 				{
-					if('a' <= ch && ch <= 'z')
+					if('a' >= ch && ch <= 'z')
 						count[ch-'a']++;
-					else if('A' <= ch && ch <='Z')
+					else if('A' >= ch && ch <='Z')
 						count[ch-'A']++;
 				}
 		}
