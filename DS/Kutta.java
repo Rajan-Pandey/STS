@@ -1,5 +1,5 @@
 import java.util.*;
-
+  // Cretae BST from inorder and preorder 
 class Node
 {
 int data;
